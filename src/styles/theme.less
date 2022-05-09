@@ -1,0 +1,63 @@
+@charset 'utf-8';
+@timecircle: 20s;
+
+
+@keyframes rotetecircle {
+  0% {
+    background-color: #ffaa22;
+    transform: rotate(0deg);
+  }
+
+  100% {
+    background-color: #ff373a;
+    transform: rotate(-360deg);
+  }
+}
+
+.ani {
+  display: flex;
+  padding: .3rem;
+}
+
+.ani-circle {
+  position: relative;
+  margin: auto;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 .08rem 0 #999 inset, 0 0 0 .26rem #fff, 0 0 .03rem .26rem #999;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: -.27rem;
+    content: "";
+    // width: .13rem;
+    width: .04rem;
+    height: .26rem;
+  }
+
+  &::before {
+    background-color: #ffaa22;
+    // border-radius: 50% 100% 100% 50%;
+    transform-origin: 0rem 1.26rem;
+    left: 50%;
+    // transform: rotate(0deg);
+    animation: rotetecircle @timecircle linear forwards;
+  }
+
+  // &::after {
+  //   background-color: #ff373a;
+  //   border-radius: 100% 50% 50% 100%;
+  //   left: ~"calc(50% - .13rem)";
+  //   transform-origin: .13rem 1.26rem;
+  //   transform: rotate(0deg);
+  // }
+}
+
+.timer {
+  margin: auto;
+  color: #999;
+}
